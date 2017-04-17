@@ -1,0 +1,47 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+body, p, h1, input, form { font-family: 'Roboto Slab', serif; font-weight: normal; }
+ul.header li {
+  display: inline;
+  list-style-type: none;
+  margin: 0;
+}
+ul.header {
+  background-color: #111;
+  padding: 0;
+}
+ul.header li a {
+  color: #FFF;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 20px;
+  display: inline-block;
+}
+
+.content {
+  background-color: #FFF;
+  margin-top: 30px;
+}
+.content h2 {
+  padding: 0;
+  margin: 0;
+}
+.content li {
+  margin-bottom: 10px;
+}
+/*.active {
+  background-color: #0099FF;
+}*/
+.logo{
+  font-size: 35px;
+  color: #FFF;
+}
+.navbar-inverse .navbar-nav>li>a.active{
+  color: #FFF
+}
+
+.header{
+  height: 50px;
+}
