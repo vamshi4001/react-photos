@@ -37,18 +37,48 @@ var {
           }
       });
       var Home = React.createClass({
+        getInitialState: function(){
+          return {
+            pages:[]
+          }
+        },
+        componentDidMount: function(){
+          var _this = this;
+          this.serverRequest = 
+            axios
+              .get("http://mycollect.in:8080/pages/1/9")
+              .then(function(response){
+                _this.setState({
+                  pages:response.data.results
+                });
+              })
+        },
+        componentWillUnmount: function(){
+          this.serverRequest.abort();
+        },
         render: function() {
             return (
               <div>
-                <h2>HELLO</h2>
-                <p>Cras facilisis urna ornare ex volutpat, et
-                convallis erat elementum. Ut aliquam, ipsum vitae
-                gravida suscipit, metus dui bibendum est, eget rhoncus nibh
-                metus nec massa. Maecenas hendrerit laoreet augue
-                nec molestie. Cum sociis natoque penatibus et magnis
-                dis parturient montes, nascetur ridiculus mus.</p>
-        
-                <p>Duis a turpis sed lacus dapibus elementum sed eu lectus.</p>
+                <h2>Cities!</h2>
+                {this.state.pages.map(function(page){
+                  return(
+                      <div className="col-md-4">
+                        <div className="profile-card text-center">
+                          <img className="img-responsive" src={page.cover.source}/>
+                          <div className="profile-info">
+                            <h2 className="hvr-underline-from-center">{page.name}<span>{page.name_with_location_descriptor}</span></h2>
+                            <a><i className="fa fa-thumbs-up fa-2x"></i> {page.likes}</a>
+                            <a><i className="fa fa-comments fa-2x"></i> {page.talking_about_count}</a>
+                            <a><i className="fa fa-map-marker fa-2x"></i>{page.checkins}</a>
+                            <div>{page.bio}</div>
+                            <a href={page.link}><i className="fa fa-facebook fa-2x"></i></a>
+                            <a href={page.website}><i className="fa fa-website-o fa-2x"></i></a>
+                            <a href="http://www.linkedin.com"><i className="fa fa-linkedin fa-2x"></i></a>
+                          </div>
+                        </div>
+                      </div>  
+                    )
+                })}
               </div>
             );
           }
@@ -98,3 +128,11 @@ var {
         </Router>,
         destination
       );
+
+      var fetchData = function(){
+        axios
+          .get("mycollect.in:8080/cities")
+          .then(function(reponse){
+            console.log(response)
+          })
+      }
