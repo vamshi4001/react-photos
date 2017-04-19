@@ -59,21 +59,25 @@ var {
         render: function() {
             return (
               <div>
-                <h2>Cities!</h2>
                 {this.state.pages.map(function(page){
+                  var location = page.location
                   return(
                       <div className="col-md-4">
                         <div className="profile-card text-center">
                           <img className="img-responsive" src={page.cover.source}/>
                           <div className="profile-info">
-                            <h2 className="hvr-underline-from-center">{page.name}<span>{page.name_with_location_descriptor}</span></h2>
-                            <a><i className="fa fa-thumbs-up fa-2x"></i> {page.likes}</a>
-                            <a><i className="fa fa-comments fa-2x"></i> {page.talking_about_count}</a>
-                            <a><i className="fa fa-map-marker fa-2x"></i>{page.checkins}</a>
-                            <div>{page.bio}</div>
-                            <a href={page.link}><i className="fa fa-facebook fa-2x"></i></a>
-                            <a href={page.website}><i className="fa fa-website-o fa-2x"></i></a>
-                            <a href="http://www.linkedin.com"><i className="fa fa-linkedin fa-2x"></i></a>
+                            <h2 className="hvr-underline-from-center">{page.name}
+                              
+                            </h2>
+                            <div className="row">
+                              <div className="col-md-6"><a><i className="fa fa-thumbs-up fa-2x"></i> {page.likes}</a></div>
+                              <div className="col-md-6"><a><i className="fa fa-comments fa-2x"></i> {page.talking_about_count}</a></div>
+                            </div>
+                            <div className="row">
+                              <div className="col-md-6"><a href={page.link}><i className="fa fa-facebook fa-2x"></i></a></div>
+                              <div className="col-md-6"><a href={page.website}><i className="fa fa-globe fa-2x"></i></a></div>
+                            </div>
+                            <div className="bio">{page.bio}</div>                            
                           </div>
                         </div>
                       </div>  

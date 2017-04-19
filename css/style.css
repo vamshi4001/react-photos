@@ -54,6 +54,7 @@ ul.header li a {
 .profile-card {
     background-color: #222222;
     margin-bottom: 20px;
+    height: 460px;
 }
 .profile-pic {
     border-radius: 50%;
@@ -71,12 +72,12 @@ ul.header li a {
     color: #BDBDBD;
     padding: 25px;
     position: relative;
-    margin-top: 15px;
 }
 .profile-info h2 {
     color: #E8E8E8;
-    letter-spacing: 4px;
+    /*letter-spacing: 4px;*/
     padding-bottom: 12px;
+    font-size: 19px;
 }
 .profile-info span {
     display: block;
@@ -134,4 +135,28 @@ ul.header li a {
     right: 0;
     height: 1px;
     background: #CECECE;
+}
+
+.profile-info i{
+    display: block;
+}
+.bio{
+      display: block;
+      /* Fallback for non-webkit */
+      padding-top: 10px;
+      display: -webkit-box;
+      max-width: 400px;
+      height: 70px;
+      /* Fallback for non-webkit */
+      margin: 0 auto;
+      font-size: 14px;
+      line-height: 1.4;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+}
+img.img-responsive{
+    max-height: 225px;
+    min-width: 350px;
 }
